@@ -1,0 +1,141 @@
+<html>
+  <body>
+  <head>
+    <title>Home Page</title>
+  </head>
+
+  <h1>Home Page</h1>
+
+  <u>You can search past record here:</u>
+  <br>
+
+<form method="POST" action="/BMI">
+  <p>My BMI: <button type="submit" formaction="/BMI">Show My BMI</button> <br> <div> 
+ My BMI is {{BMI}}
+  </div> 
+</p>
+  
+  </form>
+  <br>
+
+  <form method="POST" action="/Meal">
+  <p>Search for Meal History: <button type="submit" formaction="/Meal">Show All</button> </p>
+  
+  </form>
+  <br>
+  <form method = "POST" action="/Exercise">
+  <p>Search for Exercise History: <button type="submit" formaction="/Exercise">Show All</button></p>
+
+  </form>
+  <br>
+  <form method = "POST" action="/Food_calorie">
+  <p> Search for Food calorie: <input type="text" name="name">&nbsp;<input type="submit" value="Search"> <br>
+<i>need to be uppercase</i></p>
+  
+  </form>
+  <br>
+  <form method = "POST" action="/Forum">
+  <p> Search for topic in Forum: <input type="text" name="name">&nbsp; <input type="submit" value="Search"><br>
+<i>Note: case sensitive</i></p>
+  
+  </form>
+  <br>
+  <i>The search result is:</i> 
+ <br> 
+ <div> 
+ <table align = "center"> 
+ {% for item in data %} 
+   <tr> 
+ {% for i in item %} 
+ <td>{{i}}</td> 
+ {% endfor %} 
+ </tr> 
+   {% endfor %} 
+   </table> 
+ </div> 
+ <hr>
+  <br>
+  <br>
+ <u>You can add/update new record here:</u>
+  <br>
+  <form action="/info" method="post">
+  <p><u>Update user information:</u>
+    <label for="Current_Weight">Current Weight:</label>
+    <input type="text" id="Current_Weight" name="Current_Weight">
+    /kg &nbsp;
+    <label for="Height">Height:</label>
+    <input type="text" id="Height" name="Height">
+    /m <br>
+    <br>
+    <label for="Goal_Weight">Goal Weight:</label>
+    <input type="text" id="Goal_Weight" name="Goal_Weight">/kg &nbsp;
+    <label for="Sex">Sex:</label>
+    <input type="text" id="Sex" name="Sex">
+    F/M &nbsp;
+    <label for="Target_Calories">Target Calories:</label>
+    <input type="text" id="Target_Calories" name="Target_Calories">
+     /Cal 
+     &nbsp; &nbsp;
+     <input type="submit" value="Update Info">
+  </p>
+  </form>
+  <br>
+
+  <form method = "POST" action="/add_meal">
+  <p><u>Add new meal record:</u>
+  Meal Type: <input type="text" name="t">
+  Meal Time: <input type="text" name="time"><br>
+  <br> 
+  Meal Name: <input type="text" name="name">
+  Food Name: <input type="text" name="f_name">
+  Food Number: <input type="text" name="number">
+&nbsp; &nbsp;
+  <input type="submit" value="Add Meal">
+  </p>
+  </form>
+  <br>
+
+<form method = "POST" action="/add_exercise">
+  <p><u>Add new exercise record:</u>
+  Exercise Name: <input type="text" name="e_name">
+  Calories: <input type="text" name="c"> 
+  Time: <input type="text" name="Date_Time">
+&nbsp; &nbsp;
+  <input type="submit" value="Add Exercise">
+</p>
+  </form>
+
+  <br>
+<form method = "POST" action="/add_food">
+  <p><u>Add new food information:</u>
+  Food Name: <input type="text" name="f_name">
+  Calories: <input type="text" name="c"> 
+  Protein: <input type="text" name="p">
+  Fat: <input type="text" name="f">  
+&nbsp; &nbsp;
+  <input type="submit" value="Add New Food">
+</p>
+  </form>
+<br>
+<form action="/addForum" method="post">
+<p> <u>Forum:</u>
+    <label for="Topic">Topic:</label>
+    <input type="text" id="Topic" name="Topic"> 
+    <label for="Theme">Theme:</label>
+    <input type="text" id="Theme" name="Theme">
+    <label for="Content">Content:</label>
+    <input type="text" id="Content" name="Content">
+    &nbsp; &nbsp;
+    <input type="submit" value="Add New Topic">
+    </p>
+
+  </form>
+  
+  <br>
+  <hr>
+<p>Please enter time like <i>YYYY-MM-DD HH:MM:SS</i></p>
+<p>Please enter food item in uppercase</p>
+</body>
+
+
+</html>
